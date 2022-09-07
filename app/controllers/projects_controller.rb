@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    if @project.user != current_user
+      redirect_to root_path
+    end
+    
   end
 
   # GET /projects/new
